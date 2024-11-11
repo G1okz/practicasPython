@@ -1,8 +1,7 @@
 import random
 
-print("Generar numero aleatorio")
-
-nAleatorio = random.randint(1, 20)
+nAleatorio = random.randint(0, 20)
+intentos = 0
 
 print("Numero generado. \n -- QUE COMIENCE EL JUEGO --")
 
@@ -20,11 +19,13 @@ if adivina == nAleatorio:
     print("Felicidades, adivinaste el numero")
 else:
     while adivina != nAleatorio:
+        intentos = intentos + 1
         if adivina > nAleatorio:
             print("El numero ingresado es mayor al numero generado")
         else:
             print("El numero ingresado es menor al numero generado")
         adivina = int(input("Prueba de nuevo: "))
-    print("Felicidades, adivinaste el numero")    
+    print("Felicidades, adivinaste el numero en ", intentos, " intentos")    
+
 
 

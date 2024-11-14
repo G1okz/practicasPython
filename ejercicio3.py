@@ -1,31 +1,35 @@
 import random
 
-nAleatorio = random.randint(0, 20)
-intentos = 0
+class JuegoAdivinanza:
+    def __init__(self):
+        # Inicializamos el número aleatorio entre 0 y 20
+        self.nAleatorio = random.randint(0, 20)
+        # Inicializamos el contador de intentos
+        self.intentos = 0
 
-print("Numero generado. \n -- QUE COMIENCE EL JUEGO --")
+    def jugar(self):
+        print("Número generado. \n -- ¡QUE COMIENCE EL JUEGO! --")
 
-# print("Numero generado: ", nAleatorio)
+        # El primer intento del jugador
+        adivina = int(input("Adivina el número: "))
 
-adivina = int(input("Adivina el numero: "))
-
-"""
-Mientras el numero adivinado sea diferente al numero generado, 
-se seguira pidiendo al usuario que adivine el numero diciendo 
-si el numero ingresado por el usuario es mayor o menor al numero aleatorio.
-"""
-
-if adivina == nAleatorio:
-    print("Felicidades, adivinaste el numero")
-else:
-    while adivina != nAleatorio:
-        intentos = intentos + 1
-        if adivina > nAleatorio:
-            print("El numero ingresado es mayor al numero generado")
+        # Verificamos si el número ingresado es correcto
+        if adivina == self.nAleatorio:
+            print("¡Felicidades, adivinaste el número!")
         else:
-            print("El numero ingresado es menor al numero generado")
-        adivina = int(input("Prueba de nuevo: "))
-    print("Felicidades, adivinaste el numero en ", intentos, " intentos")    
+            # Si no es correcto, seguimos pidiendo intentos hasta adivinar
+            while adivina != self.nAleatorio:
+                self.intentos += 1
+                if adivina > self.nAleatorio:
+                    print("El número ingresado es mayor al número generado.")
+                else:
+                    print("El número ingresado es menor al número generado.")
+                adivina = int(input("Prueba de nuevo: "))
+            # Al acertar, mostramos los intentos realizados
+            print(f"¡Felicidades, adivinaste el número en {self.intentos} intentos!")
 
 
-
+if __name__ == "__main__":
+    # Crear una instancia del juego y empezar a jugar
+    juego = JuegoAdivinanza()
+    juego.jugar()

@@ -1,49 +1,41 @@
-# Operacion suma
-print("Operacion suma")
-x = input ("Inserte el primer numero: ")
-y = input ("Inserte el segundo numero: ")
+class Operaciones:
+    def __init__(self, x, y):
+        # Inicializamos los valores de x y y
+        self.x = x
+        self.y = y
 
-suma = int (x) + int (y)
+    def suma(self):
+        return self.x + self.y
 
-print ("La suma de los numeros enteros es: ", suma)
+    def resta(self):
+        return self.x - self.y
 
+    def multiplicacion(self):
+        return self.x * self.y
 
-# Operacion resta
-print("Operacion resta")
-x = input ("Inserte el primer numero: ")
-y = input ("Inserte el segundo numero: ")
+    def division(self):
+        if self.y != 0:
+            return self.x / self.y
+        else:
+            return "Error: División por cero no permitida"
 
-resta = int(x) - int(y)
+    def resto(self):
+        if self.y != 0:
+            return self.x % self.y
+        else:
+            return "Error: División por cero no permitida"
 
-print ("La resta de los numeros enteros es: ", resta)
+if __name__ == "__main__":
+# Solicitamos los valores de x e y al usuario
+    x = int(input("Inserte el primer número: "))
+    y = int(input("Inserte el segundo número: "))
 
+    # Creamos una instancia de la clase Operaciones
+    operacion = Operaciones(x, y)
 
-# Operacion multiplicacion
-print("Operacion multiplicacion")
-x = input ("Inserte el primer numero: ")
-y = input ("Inserte el segundo numero: ")
-
-multiplicacion = int(x) * int(y)
-
-print ("La multiplicacion de los numeros enteros es: ", multiplicacion)
-
-
-# Operacion division
-print("Operacion division")
-x = input ("Inserte el primer numero: ")
-y = input ("Inserte el segundo numero: ")
-
-division = int(x) / int(y)
-
-print ("La division de los numeros enteros es: ", division)
-
-
-# Operacion resto ambos
-print("Operacion resto ambos")
-x = input ("Inserte el primer numero: ")
-y = input ("Inserte el segundo numero: ")
-
-resta_ambos = int(x) % int(y)
-
-print ("La resta de ambos de los numeros enteros es: ", resta_ambos)
-
+    # Mostramos los resultados de cada operación
+    print("La suma de los números es:", operacion.suma())
+    print("La resta de los números es:", operacion.resta())
+    print("La multiplicación de los números es:", operacion.multiplicacion())
+    print("La división de los números es:", operacion.division())
+    print("El resto de la división es:", operacion.resto())

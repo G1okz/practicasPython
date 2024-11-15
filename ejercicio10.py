@@ -24,3 +24,10 @@ class AnalisisTabla:
 tabla = ["Hola", "Adios", "Hasta Luego", "Hola como estas"]
 analisis = AnalisisTabla(tabla)
 analisis.mayor_menor()
+
+"""
+# ----------------- SALIDA ----------------- #
+Índice 3 contiene palabra con MÁS longitud: Hola como estas
+Índice 0 contiene palabra con MENOS longitud: Hola
+# ------------------------------------------ #
+"""

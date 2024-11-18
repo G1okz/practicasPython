@@ -21,6 +21,7 @@ class PokemonCard:
         dano = max(0, ataque_modificado - oponente.defensa)
         print(f"{self.nombre} ataca a {oponente.nombre} y le hace {dano} puntos de daño")
         oponente.recibir_dano(dano)
+        print(f"{oponente.nombre} tiene {oponente.hp} puntos de vida")
 
     def recibir_dano(self, dano):
         self.hp -= dano
@@ -62,12 +63,22 @@ def crear_pokemon():
 
     return PokemonCard(nombre, tipo, ataque, defensa, hp, habilidad_especial)
 
+def crear_pokemon_aleatorio():
+    nombre = "Pokemon" + str(random.randint(1, 100))
+    tipo = random.choice(["Fuego", "Agua", "Planta"])
+    ataque = random.randint(10, 50)
+    defensa = random.randint(5, 20)
+    hp = random.randint(50, 150)
+    habilidad_especial = "Habilidad" + str(random.randint(1, 100))
+
+    return PokemonCard(nombre, tipo, ataque, defensa, hp, habilidad_especial)
+
 def main():
     print("Hola, bienvenido a Pokemon Fight")
     print("Elige tu pokemon")
     pokemon1 = crear_pokemon()
-    print("Elige el pokemon de tu oponente")
-    pokemon2 = crear_pokemon()
+    print("Eligiendo el pokemon del oponente")
+    pokemon2 = crear_pokemon_aleatorio()
 
     print("Comienza la batalla")
     batalla = PokemonBattle(pokemon1, pokemon2)
